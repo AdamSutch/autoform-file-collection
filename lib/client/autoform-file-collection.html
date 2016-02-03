@@ -1,0 +1,30 @@
+<template name="autoformFileCollection">
+
+    <div>
+        <div class="input-group">
+            <!--File selector button-->
+            <span class="input-group-btn">
+                <span class="btn btn-primary btn-file">
+                    Browse...
+                    <input class=" fileBrowse" type="file" accept="video/mp4">
+                </span>
+            </span>
+            <!--Selected file name display-->
+            <input type="text" class="form-control fileDrop videoaf-field"
+                   placeholder="No File Selected" readonly value="{{fileName}}"
+                   data-schema-key="videoFile">
+        </div>
+        <!--Display a progress bar when uploading-->
+        {{#if uploading}}
+        <br>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="{{uploadProgress}}"
+                 aria-valuemin="0" aria-valuemax="100"
+                 style="min-width: 2em; width: {{uploadProgress}}%;">
+                {{uploadProgress}}%
+            </div>
+        </div>
+        {{/if}}
+    </div>
+
+</template>
